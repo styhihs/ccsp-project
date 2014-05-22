@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include header %>
+		<link rel="stylesheet" type="text/css" href="stylesheets/events.css">
+	</head>
+	<body>
+		<%- include navbar %>
+		
+		<div class="fs-container">
+			<header class="clearfix">
+				<h1>食安事件簿</h1>
+				<!--
+				<nav>
+					<a href="http://tympanus.net/Blueprints/ScrollingLayout/" class="icon-arrow-left" data-info="previous Blueprint">Previous Blueprint</a>
+					<a href="http://tympanus.net/codrops/?p=14941" class="icon-drop" data-info="back to the Codrops article">back to the Codrops article</a>
+				</nav>
+				-->
+			</header>
+
+			<div class="main">
+				<ul class="cbp_tmtimeline">
+					<li>
+						<time class="cbp_tmtime" datetime="2014/4/16"><span>2014</span><span>4/16</span></time>
+						<div class="cbp_tmicon cbp_tmicon-earth"></div>
+						<div class="cbp_tmlabel">
+							<div class="fs-title" id="fs-title-event1">
+								<h2>工業漂白劑漂白豆芽</h2>
+							</div>
+							<div class="fs-content" id="fs-content-event1">
+								<p>2月13日，台南市仁德區一間工廠被查出以俗稱「保險粉」的工業用連二亞硫酸鈉和漂白劑次氯酸鈉浸泡豆芽漂白、保鮮。4月16日，又再查出苗栗市一間工廠同樣以「保險粉」浸泡豆芽漂白，且黑心豆芽已販售長達30年之久。</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<time class="cbp_tmtime" datetime="2014/4/9"><span>2014</span><span>4/9</span></time>
+						<div class="cbp_tmicon cbp_tmicon-earth"></div>
+						<div class="cbp_tmlabel">
+							<div class="fs-title" id="fs-title-event2">
+								<h2>黑心牛、羊、豬肉，注射「保水劑」增重一倍</h2>
+							</div>
+							<div class="fs-content" id="fs-content-event2">
+								<p>高雄檢警2013年11月接獲線報查出，高雄湖內區「農正鮮」公司涉嫌將牛、羊肉填充大量保水劑加水按摩後冷凍販賣，使牲畜重量增加至少一倍，再販售給國軍食用，從中牟取暴利，檢警昨兵分39路，大舉搜索「國軍副食供應中心」、全國國軍26處「副食品供應站」、下游廠商工廠等39處所，並約談6人到案，聲押「農正鮮」負責人翟自屏，其他業者（高雄將源實業負責人謝美紅、台南樂騏食品陳水金）分別以20至30萬元交保候傳，法院中午裁定翟自屏交保50萬元。</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<time class="cbp_tmtime" datetime="2014/4/1"><span>2014</span><span>4/1</span></time>
+						<div class="cbp_tmicon cbp_tmicon-earth"></div>
+						<div class="cbp_tmlabel">
+							<div class="fs-title" id="fs-title-event3">
+								<h2>雞蛋殘留抗生素</h2>
+							</div>
+							<div class="fs-content" id="fs-content-event3">
+								<p>行政院農業委員會和衛生福利部食品藥物管理署聯合稽查小組2月共針對54件雞蛋做全面的安全大稽查，結果驗出2件不合格，其中「偉良牧場」檢出殘留抗生素氟甲磺氯黴素和脫氧氫四環素（即去氧羥四環素），且供應給7-11統一超商的2萬4000顆問題茶葉蛋已全賣光；另一家「俊宗牧場」生產的問題蛋，驗出驅蟲藥乃卡巴精，則主要供應「國軍」食用。但農委會及食藥署卻未立即公布。</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<%- include footer %>
+		
+		<script type="text/javascript" src="javascripts/timeline.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('#nav-event').addClass('active');
+			});
+		</script>
+	</body>
+</html>
