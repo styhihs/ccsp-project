@@ -11,7 +11,11 @@ ul {
 	list-style: none!important;
 }
 
+/*
 .footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 	background: #000;
 	font-size: 14px;
 	letter-spacing: 1px;
@@ -20,3 +24,4 @@ ul {
 	padding: 5px 0;
 	margin-top: 50px;
 }
+*/

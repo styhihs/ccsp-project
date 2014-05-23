@@ -1,0 +1,29 @@
+<div class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
+	<h3>我關注的食品</h3>
+	<a href="#">Celery seakale</a>
+	<a href="#">Dulse daikon</a>
+	<a href="#">Zucchini garlic</a>
+	<a href="#">Catsear azuki bean</a>
+	<a href="#">Dandelion bunya</a>
+	<a href="#">Rutabaga</a>
+	<a href="#">Celery seakale</a>
+	<a href="#">Dulse daikon</a>
+	<a href="#">Zucchini garlic</a>
+	<a href="#">Catsear azuki bean</a>
+	<a href="#">Dandelion bunya</a>
+	<a href="#">Rutabaga</a>
+</div>
+
+<div class="container">
+	<button class="showBottom-button" id="showBottom">食物</button>
+</div>
+
+<script type="text/javascript" src="javascripts/classie.js"></script>
+<script type="text/javascript">
+	var menuBottom = document.getElementById('cbp-spmenu-s4'),
+		showBottom = document.getElementById('showBottom');
+	showBottom.onclick = function() {
+		classie.toggle(this, 'active');
+		classie.toggle(menuBottom, 'cbp-spmenu-open');
+	};
+</script>

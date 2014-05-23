@@ -2,15 +2,16 @@
 <html lang="en">
 	<head>
 		<%- include header %>
+		<link rel="stylesheet" type="text/css" href="stylesheets/sidebar.css">
 	</head>
 	<body>
 		<%- include navbar %>
-		<!-- Add code here -->
+		
+		<%- include foodlist.ejs %>
+
 		<%- include footer %>
 		<script type="text/javascript">
-			$(document).ready(function () {
-				$('#nav-food').addClass('active');
-			});
+			$('#nav-food').addClass('active');
 		</script>
 	</body>
 </html>

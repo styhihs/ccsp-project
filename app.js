@@ -25,6 +25,7 @@ app.use(app.router);
 app.get('/', routes.index);
 app.get('/food', routes.food);
 app.get('/events', routes.events);
+app.get('/login', routes.login);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -58,4 +59,3 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.listen(3000);
