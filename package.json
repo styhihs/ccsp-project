@@ -13,7 +13,8 @@
     "body-parser": "~1.0.0",
     "debug": "~0.7.4",
     "ejs": "~0.8.5",
-    "logfmt": "^1.1.2"
+    "logfmt": "^1.1.2",
+    "mongodb": "^1.4.5"
   },
   "main": "app.js",
   "repository": {
