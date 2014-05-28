@@ -29,6 +29,62 @@ ul {
 	padding: 15px 20px 5px 0;
 }
 
+.article-title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 7px 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.article-content {
+	padding: 10px 0;
+}
+
+#add-new-article {
+	position: fixed;
+	right: 0px;
+	width: 55px;
+	height: 60px;
+	padding: 8px;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	background: #6493B0;
+	cursor: pointer;
+	box-shadow: 0 1px 5px -1px rgba(170, 180, 190, 1);
+}
+
+.modal-body {
+	padding: 20px 45px;
+}
+
+.showBottom-button {
+	position: fixed;
+	left: 20px;
+	bottom: 150px;
+	width: 100px;
+	height: 40px;
+	padding: 10px 5px;
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	background: #0d77b6;
+	cursor: pointer;
+	z-index: 800;
+	box-shadow: 5px 1px 0 -1px rgba(170, 180, 190, 1);
+	border-radius: 5px 5px 0 0;
+}
+
+.showBottom-button.showBottom-button-close {
+	bottom: 0;
+}
+
+.showBottom-button {
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+
 /*
 .footer {
 	position: fixed;
