@@ -1,40 +1,122 @@
-<div class="container waterfall" data-col-min-width="240"
-	data-default-container-width="600"
-	data-autoresize="true">
-	<div data-toggle="modal" data-target="#myModal">testtest</div>
-	<div>
-		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-	</div>
-	<div>
-		1. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-	</div>
-	<div>
-		2. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-	</div>
-	<div>
-		3. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-	</div>
-	<div>
-		4. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-	</div>
-</div>
+<div id="add-new-article" data-toggle="modal" data-target="#add-article-form">新增文章</div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="add-article-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   	<div class="modal-dialog">
     	<div class="modal-content">
       		<div class="modal-header">
         		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        		<h4 class="modal-title" id="myModalLabel">新增文章</h4>
       		</div>
       		<div class="modal-body">
-        		...
+        		<form class="form-horizontal" role="form">
+					<div class="form-group">
+	    				<label for="inputEmail3" class="col-sm-2 control-label">標題</label>
+	    				<div class="col-sm-10">
+	      					<input type="email" class="form-control" id="inputEmail3">
+	    				</div>
+  					</div>
+  					<div class="form-group">
+    					<label for="inputPassword3" class="col-sm-2 control-label">內容</label>
+    					<div class="col-sm-10">
+      						<textarea class="form-control" rows="8"></textarea>
+    					</div>
+  					</div>
+  					<div class="form-group">
+    					<div class="col-sm-offset-4 col-sm-8">
+    						<button type="submit" class="btn btn-danger">
+      							<span class="glyphicon glyphicon-minus"></span>&nbsp;&nbsp;取消
+      						</button>
+      						&nbsp;&nbsp;
+      						<button type="submit" class="btn btn-primary">
+      							<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新增
+      						</button>
+    					</div>
+  					</div>
+				</form>
       		</div>
-      		<div class="modal-footer">
-        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        		<button type="button" class="btn btn-primary">Save changes</button>
+    	</div>
+  	</div>
+</div>
+
+
+<!-- waterfall excerpts -->
+<div class="container waterfall" data-col-min-width="240" data-default-container-width="600" data-autoresize="true">
+	<div data-toggle="modal" data-target="#article1">
+		<div class="article-title">[食記] 台北文山 政大Doris Pie</div>
+		<div class="article-content">
+			地點在新光路上，甘泉魚麵斜對面 <br />
+			身為一個外宿在附近的居民，在他裝潢時就滿心期待 <br />
+			甚至開幕後路過時翻個菜單也覺得好像不錯 <br />
+			殊不知..... <br />
+		</div>
+	</div>
+	<div data-toggle="modal" data-target="#article2">
+		<div class="article-title">[食記] 苗栗市｜用料實在的便宜豆花「感恩豆花」</div>
+		<div class="article-content">
+			餐廳名稱：感恩豆花 <br />
+			消費時間：2014年05月 <br />
+			地址：苗栗市中山路683號 <br />
+			電話：037-364592、0923-259591 <br />
+			營業時間：07:00-21:00（不定休） <br />
+			每人平均價位：30 <br />
+			推薦菜色： 紅豆粉圓豆花 綠豆薏仁豆花 綜合豆花 <br />
+		</div>
+	</div>
+</div>
+
+
+<!-- Popup contents -->
+<div class="modal fade" id="article1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        		<h4 class="modal-title" id="myModalLabel">[食記] 台北文山 政大Doris Pie</h4>
+      		</div>
+      		<div class="modal-body">
+        		地點在新光路上，甘泉魚麵斜對面 <br />
+				身為一個外宿在附近的居民，在他裝潢時就滿心期待 <br />
+				甚至開幕後路過時翻個菜單也覺得好像不錯 <br />
+				殊不知..... <br />
+				<br />
+				今天進去用餐時，店裡頭坐滿8成蠻熱鬧的 <br />
+				外場只有兩位店員，說是外場其實也只是在櫃台內忙碌<br />
+				完全沒人注意我跟朋友走進店裡 <br />
+				在一個茫然的情況下，我只好走到櫃台前詢問是否是自行入座 <br />
+      		</div>
+    	</div>
+  	</div>
+</div>
+<div class="modal fade" id="article2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        		<h4 class="modal-title" id="myModalLabel">[食記] 苗栗市｜用料實在的便宜豆花「感恩豆花」</h4>
+      		</div>
+      		<div class="modal-body">
+        		[瑋瑋*美食萬歲] 圖文網誌版：http://vivawei.pixnet.net/blog/post/4708455 <br />
+        		<br />
+				餐廳名稱：感恩豆花 <br />
+				消費時間：2014年05月 <br />
+				地址：苗栗市中山路683號 <br />
+				電話：037-364592、0923-259591 <br />
+				營業時間：07:00-21:00（不定休） <br />
+				每人平均價位：30 <br />
+				推薦菜色： 紅豆粉圓豆花 綠豆薏仁豆花 綜合豆花 <br />
+				<br />
+				這一家位於苗栗市中苗市場附近的「感恩豆花」 <br />
+				是媽媽今天指定我要來買的豆花！ <br />
+				在苗栗市生活那麼久了既然都沒有發現 <br />
+				在這個地方有這樣一家的豆花店存在。 <br />
+				<br />
+				感恩豆花的價格非常便宜，最便宜的一碗只要２０元， <br />
+				最貴的也只要３５元而已。 <br />
+				這是感恩豆花的價目表，真的十分便宜，加薑汁的話需要每杯加五元。 <br />
+				<br />
+				這是感恩豆花的配料區，本來想要點花生豆花的， <br />
+				結果今天下午來老闆娘說花生都已經賣光光了！ <br />
+				他們所使用的粉圓是那種比較小顆的， <br />
       		</div>
     	</div>
   	</div>
