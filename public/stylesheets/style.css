@@ -11,6 +11,24 @@ ul {
 	list-style: none!important;
 }
 
+.waterfall > div {
+	background: #EBF4FA;
+	margin: 0 7px 7px 0;
+	padding: 15px;
+	box-shadow: 0 1px 5px -1px rgba(170, 180, 190, 1);
+	border-radius: 10px;
+}
+
+.popover {
+	max-width: 600px;
+	width: 350px;
+	left: 10px !important;
+}
+
+.popover-content {
+	padding: 15px 20px 5px 0;
+}
+
 /*
 .footer {
 	position: fixed;

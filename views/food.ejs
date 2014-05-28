@@ -6,12 +6,36 @@
 	</head>
 	<body>
 		<%- include navbar %>
-		
-		<%- include foodlist.ejs %>
-
+		<%- include food_articles %>
+		<%- include foodlist %>
 		<%- include footer %>
+		<script type="text/javascript" src="javascripts/zepto.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.waterfall.js"></script>
+		<script type="text/javascript" src="javascripts/classie.js"></script>
+		<script type="text/javascript">
+			var menuBottom = document.getElementById('cbp-spmenu-s4'),
+				showBottom = document.getElementById('showBottom');
+			showBottom.onclick = function() {
+				classie.toggle(menuBottom, 'cbp-spmenu-open');
+			};
+		</script>
 		<script type="text/javascript">
 			$('#nav-food').addClass('active');
+		</script>
+		<script type="text/javascript">
+			$('#add-item').popover({
+				html: true,
+				content: function() {
+					return $('#add-item-form').html();
+				}
+			});
+			$('body').on('click', function (e) {
+    			$('[data-toggle="popover"]').each(function () {
+        			if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+            			$(this).popover('hide');
+        			}
+    			});
+			});
 		</script>
 	</body>
 </html>

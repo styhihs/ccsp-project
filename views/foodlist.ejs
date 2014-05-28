@@ -1,32 +1,50 @@
 <div class="cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom" id="cbp-spmenu-s4">
-	<h3>我關注的食品</h3>
-	<a href="#">Celery seakale</a>
-	<a href="#">Dulse daikon</a>
-	<a href="#">Zucchini garlic</a>
+	<h3>
+		<div class="itemlist-title">我關注的食品</div>
+		<div class="insert-item-button">
+			<a id="add-item" data-container="body" data-toggle="popover" data-placement="top" data-original-title="新增" href="#">新增項目</a>
+			<div id="add-item-form" class="hide">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+    					<label for="inputEmail3" class="col-sm-3 control-label">食品</label>
+    					<div class="col-sm-9">
+      						<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    					</div>
+  					</div>
+  					<div class="form-group">
+    					<label for="inputPassword3" class="col-sm-3 control-label">店家</label>
+    					<div class="col-sm-9">
+      						<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    					</div>
+  					</div>
+  					<div class="form-group">
+    					<label for="inputPassword3" class="col-sm-3 control-label">地區</label>
+    					<div class="col-sm-9">
+      						<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    					</div>
+  					</div>
+  					<div class="form-group">
+    					<div class="col-sm-offset-5 col-sm-7">
+    						<button type="submit" class="btn btn-danger">
+      							<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;取消
+      						</button>
+      						&nbsp;&nbsp;
+      						<button type="submit" class="btn btn-primary">
+      							<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新增
+      						</button>
+    					</div>
+  					</div>
+				</form>
+			</div>
+		</div>
+	</h3>
+	<a href="#">麥當勞</a>
+	<a href="#">鼎王</a>
+	<a href="#">星巴克</a>
 	<a href="#">Catsear azuki bean</a>
 	<a href="#">Dandelion bunya</a>
-	<a href="#">Rutabaga</a>
-	<a href="#">Celery seakale</a>
-	<a href="#">Dulse daikon</a>
-	<a href="#">Zucchini garlic</a>
-	<a href="#">Catsear azuki bean</a>
-	<a href="#">Dandelion bunya</a>
-	<a href="#">Rutabaga</a>
 </div>
 
 <div class="container">
 	<button class="showBottom-button" id="showBottom">食物</button>
-	<button class="newItem"">新增</button>
-	<button class="newArticle">寫文章</button>
 </div>
-
-<script type="text/javascript" src="javascripts/classie.js"></script>
-<script type="text/javascript">
-	var menuBottom = document.getElementById('cbp-spmenu-s4'),
-		showBottom = document.getElementById('showBottom');
-	showBottom.onclick = function() {
-		classie.toggle(this, 'active');
-		classie.toggle(menuBottom, 'cbp-spmenu-open');
-
-	};
-</script>

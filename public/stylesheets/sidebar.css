@@ -43,6 +43,11 @@ p {
 	background: #0d77b6;
 }
 
+.itemlist-title {
+	padding: 10px;
+	text-align: center;
+}
+
 .cbp-spmenu a {
 	display: block;
 	color: #fff;
@@ -51,6 +56,7 @@ p {
 }
 
 .cbp-spmenu a:hover {
+	text-decoration: none;
 	background: #258ecd;
 }
 
@@ -94,6 +100,26 @@ p {
 	border-left: 1px solid #258ecd;
 }
 
+.insert-item-button {
+	font-size: 0.8em;
+	text-align: center;
+	padding: 20px;
+	font-weight: 300;
+}
+
+.insert-item-button a {
+	color: #afdefa;
+	width: 100%;
+	padding: 0;
+	border-left: 0;
+}
+
+.insert-item-button a:hover {
+	color: #FFF;
+	background: #0d77b6;
+	cursor: pointer;
+}
+
 /* Vertical menu that slides from the left or right */
 
 .cbp-spmenu-left {
@@ -119,7 +145,7 @@ p {
 }
 
 .cbp-spmenu-bottom {
-	bottom: -150px;
+	bottom: 0px;	/* 預設顯示 */
 }
 
 .cbp-spmenu-top.cbp-spmenu-open {
@@ -127,7 +153,7 @@ p {
 }
 
 .cbp-spmenu-bottom.cbp-spmenu-open {
-	bottom: 0px;
+	bottom: -150px;		/* 按下按鈕後隱藏 */
 }
 
 /* Push classes applied to the body */
