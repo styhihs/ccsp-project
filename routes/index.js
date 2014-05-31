@@ -74,8 +74,7 @@ exports.food = function(req, res) {
 
 	  var collection_food_ad = db.collection('food_ad');
 	  collection_food_ad.find().sort({"date":-1}).limit(40).toArray(function(err, items) {
-	  	  console.log(items.length);
-		  res.render('food', { title: '違規食品', items: items });
+		  res.render('food', { title: '違規食品', items: items, hasList: false });
 	  });
 	});
 };
@@ -86,9 +85,7 @@ exports.mylist = function(req, res){
 	// Connect to the db
 	MongoClient.connect(mongoUri, function(err, db) {
 	  if(err) { return console.dir(err);}
-
-
-	  res.render('food', { title: '糾察隊' });
+	  res.render('food', { title: '糾察隊' , items:{}, hasList: true});
 	});
 };
 
