@@ -22,7 +22,11 @@
 			};
 		</script>
 		<script type="text/javascript">
-			$('#nav-food').addClass('active');
+			$('#nav-food').addClass('active');			
+			document.getElementById('nav-btn-all').style.display = 'inline';
+			document.getElementById('nav-btn-mylist').style.display = 'inline';
+			$('#nav-btn-all').removeClass('btn-default').addClass('btn-primary');
+
 			$('#add-item').popover({
 				html: true,
 				content: function() {

@@ -11,6 +11,13 @@ ul {
 	list-style: none!important;
 }
 
+/* ----- nav style ----- */
+#nav-btn-all, #nav-btn-mylist {
+	display: none;
+	margin-left: 15px;
+}
+
+
 .waterfall > div {
 	background: #EBF4FA;
 	margin: 0 7px 7px 0;
