@@ -1,10 +1,7 @@
+
 body{
 	font-family: "蘋果儷中黑", "Apple LiGothic", "Apple LiGothic Medium", "Microsoft JhengHei", "微軟正黑體", sans-serif;
-	 background: url(http://i.imgur.com/QBgZ7J1.jpg) no-repeat center center fixed;   
-	 -webkit-background-size: cover;  
-	 -moz-background-size: cover;  
-	 -o-background-size: cover;  
-	 background-size: 50%;  
+	  
 }
 
 a {
@@ -14,5 +11,101 @@ a {
 
 ul {
 	list-style: none!important;
+}
+@media only screen and (min-width: 660px) {
+	article.ctwTitle{
+		margin-top:-5%;
+		padding: 7%;
+		background: url("https://farm5.staticflickr.com/4045/4407962493_156d870061_b.jpg") no-repeat center center fixed;   
+		 -webkit-background-size: cover;  
+		 -moz-background-size: cover;  
+		 -o-background-size: cover;  
+		 background-size: cover; 
+	}
+
+	#ctwTitleT1{
+		font-size: 600%;
+		color:#ffdff0;
+		text-align: center;
+		margin: 30px;
+	}
+
+	#ctwTitleT2{
+		font-size: 450%;
+		color:#ffdff0;
+		text-align: center;
+		margin: 30px;
+	}
+	article.whatWeCare{
+		background-color: #180703;
+	}
+	div.whatWeCareT1, div.allForYouT1{
+		font-size: 50px;
+		color:#ffdff0;
+		text-align: center;
+	}
+	div.whatWeCareContentW{
+		font-size: 30px;
+		color:#ffff5f;
+		 
+		text-align: center;
+		
+	}
+	div.whatWeCareContentW p{
+		font-size: 20px;
+		color:#8fff5f;
+		padding-left: 2%;
+	}
+	div.whatWeCareContentW3{
+		font-size: 35px;
+		color:#ff5500;
+		text-align: center;
+		padding: 2%;
+	}
+
+	article.allForYou{
+		padding: 7%;
+		background: url("https://farm8.staticflickr.com/7203/6911019991_8e5d327574_b.jpg");
+		 -webkit-background-size: cover;  
+		 -moz-background-size: cover;  
+		 -o-background-size: cover;  
+		 background-size: cover; 
+	}
+}
+
+@media only screen and (max-width: 660px) {
+	article.ctwTitle{
+		margin-top:-5%;
+		padding: 10px;
+		background: url("https://farm5.staticflickr.com/4045/4407962493_156d870061_b.jpg") no-repeat center center fixed;   
+		 -webkit-background-size: cover;  
+		 -moz-background-size: cover;  
+		 -o-background-size: cover;  
+		 background-size: cover; 
+	}
+
+	#ctwTitleT1{
+		font-size: 45px;
+		color:#ffdff0;
+		text-align: center;
+		margin: 20px;
+	}
+
+	#ctwTitleT2{
+		font-size: 40px;
+		color:#ffdff0;
+		text-align: center;
+		margin: 20px;
+	}
+	.whatWeCareT1{
+		font-size: 35px;
+		color:#ffdff0;
+		text-align: center;
+	}
+	.whatWeCareContentW{
+		font-size: 25px;
+		color:#360895;
+		text-align: center;
+	}
 }
 
