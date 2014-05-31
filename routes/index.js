@@ -42,7 +42,7 @@ function initDB(){
 }
 
 exports.index = function(req, res) {
-	initDB();
+	// initDB();
 	res.render('index', { title: '首頁' });
 };
 
