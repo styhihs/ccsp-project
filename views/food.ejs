@@ -7,7 +7,9 @@
 	<body>
 		<%- include navbar %>
 		<%- include food_articles %>
-		<%- include foodlist %>
+		<%if (hasList) { %>
+			<%- include foodlist %>
+		<% } %>
 		<%- include footer %>
 		<script type="text/javascript" src="javascripts/zepto.js"></script>
 		<script type="text/javascript" src="javascripts/jquery.waterfall.js"></script>
