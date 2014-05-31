@@ -15,6 +15,8 @@ exports.index = function(req, res) {
 	  // console.log("new");
 	  var collection1 = db.collection('ptt_food');
 	  var collection2 = db.collection('ptt_otherFood');
+	  collection1.insert(ptt_food[0], {w:1}, function(err, result) {});
+	  console.log(collection1.find().toArray(function(err, items) {}));
 
 	  //init
 	  // if ()
