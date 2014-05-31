@@ -1,13 +1,15 @@
 /* GET home page. */
 var fs = require('fs');
 var wikiEventsFilePath = __dirname + '/../data/foodData.json'
+// Retrieve
+var MongoClient = require('mongodb').MongoClient;
+var mongoUri = process.env.MONGOLAB_URI || 
+			   process.env.MONGOHQ_URL || 
+			   "mongodb://localhost:27017/foods";
+
+
 
 function initDB(){
-	// Retrieve
-	var MongoClient = require('mongodb').MongoClient;
-	var mongoUri = process.env.MONGOLAB_URI || 
-				   process.env.MONGOHQ_URL || 
-				   "mongodb://localhost:27017/foods";
 
 	// Connect to the db
 	MongoClient.connect(mongoUri, function(err, db) {
@@ -35,7 +37,7 @@ function initDB(){
 	  collection_foodData.count(function (err, count) {
 	    if (!err && count === 0) collection_foodData.insert(foodData, {w:1}, function(err, result) {});
 	  });
-	  
+
 	});
 }
 
@@ -61,9 +63,31 @@ exports.events = function(req, res) {
 
 /* GET food page. */
 exports.food = function(req, res) {
-	res.render('food', { title: '食品糾察隊' });
+	MongoClient.connect(mongoUri, function(err, db) {
+	  if(err) { return console.dir(err);}
+
+	  var data;
+	  var collection_food_ad = db.collection('foodData');
+	  collection_food_ad.find().toArray(function(err, items) {
+	  	data = items;
+	  });
+	  res.render('food', { title: '違規食品', items: data });
+	});
 };
 
-exports.login = function(req, res) {
-	res.render('login', { title: '登入' });
-}
+exports.mylist = function(req, res){
+
+	var user = "michael";
+	// Connect to the db
+	MongoClient.connect(mongoUri, function(err, db) {
+	  if(err) { return console.dir(err);}
+
+
+	  res.render('food', { title: '糾察隊' });
+	});
+};
+
+
+// exports.login = function(req, res) {
+// 	res.render('login', { title: '登入' });
+// }
