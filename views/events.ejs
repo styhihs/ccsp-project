@@ -9,11 +9,30 @@
 		
 		<div class="fs-container">
 			<header class="clearfix">
-				<h1>食安事件簿</h1>
+				<h1><%= title %></h1>
 			</header>
 
 			<div class="main">
 				<ul class="cbp_tmtimeline">
+					<% var len = events.length; %>
+					<% for(var i = len - 1; i >= 0; i--) { %>
+					<li>
+						<time class="cbp_tmtime" datetime="2014/4/16">
+							<span> </span>
+							<span><%= events[i]['date'] %></span>
+						</time>
+						<div class="cbp_tmicon cbp_tmicon-earth"></div>
+						<div class="cbp_tmlabel">
+							<div class="fs-title" id="fs-title-event<%= i %>">
+								<h2><%= events[i]['title'] %></h2>
+							</div>
+							<div class="fs-content" id="fs-content-event<%= i %>">
+								<p><%= events[i]['content'] %></p>
+							</div>
+						</div>
+					</li>
+					<% } %>
+					<!--
 					<li>
 						<time class="cbp_tmtime" datetime="2014/4/16"><span>2014</span><span>4/16</span></time>
 						<div class="cbp_tmicon cbp_tmicon-earth"></div>
@@ -26,6 +45,8 @@
 							</div>
 						</div>
 					</li>
+					-->
+					<!--
 					<li>
 						<time class="cbp_tmtime" datetime="2014/4/9"><span>2014</span><span>4/9</span></time>
 						<div class="cbp_tmicon cbp_tmicon-earth"></div>
@@ -49,7 +70,7 @@
 								<p>行政院農業委員會和衛生福利部食品藥物管理署聯合稽查小組2月共針對54件雞蛋做全面的安全大稽查，結果驗出2件不合格，其中「偉良牧場」檢出殘留抗生素氟甲磺氯黴素和脫氧氫四環素（即去氧羥四環素），且供應給7-11統一超商的2萬4000顆問題茶葉蛋已全賣光；另一家「俊宗牧場」生產的問題蛋，驗出驅蟲藥乃卡巴精，則主要供應「國軍」食用。但農委會及食藥署卻未立即公布。</p>
 							</div>
 						</div>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>

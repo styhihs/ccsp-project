@@ -1,5 +1,6 @@
 /* GET home page. */
 var fs = require('fs');
+var wikiEventsFilePath = __dirname + '/../data/foodData.json'
 
 exports.index = function(req, res) {
 	var ptt_food = JSON.parse(fs.readFileSync("data/ptt_food.json", "utf8"));
@@ -31,7 +32,17 @@ exports.index = function(req, res) {
 
 /* GET event timeline page. */
 exports.events = function(req, res) {
-	res.render('events', { title: '食安事件簿' });
+	fs.readFile(wikiEventsFilePath, 'utf8', function (err, data) {
+		if (err) { throw err; }
+
+		data = data.trim();
+		data = JSON.parse(data);
+		
+		res.render('events', {
+			title: '食安事件簿',
+			events: data
+		});
+	});
 };
 
 /* GET food page. */
