@@ -24,8 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
 app.get('/food', routes.food);
+app.get('/food/all', routes.all);
+app.get('/food/list', routes.list);
 app.get('/events', routes.events);
-app.get('/login', routes.login);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
