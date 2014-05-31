@@ -1,0 +1,18 @@
+body{
+	font-family: "蘋果儷中黑", "Apple LiGothic", "Apple LiGothic Medium", "Microsoft JhengHei", "微軟正黑體", sans-serif;
+	 background: url(http://i.imgur.com/QBgZ7J1.jpg) no-repeat center center fixed;   
+	 -webkit-background-size: cover;  
+	 -moz-background-size: cover;  
+	 -o-background-size: cover;  
+	 background-size: 50%;  
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none!important;
+}
+
