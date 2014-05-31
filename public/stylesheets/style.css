@@ -12,9 +12,15 @@ ul {
 }
 
 /* ----- nav style ----- */
-#nav-btn-all, #nav-btn-mylist {
+#nav-btn-all, #nav-btn-mylist, #nav-search-bar {
 	display: none;
 	margin-left: 15px;
+}
+
+#nav-search-bar {
+	padding-right: 25px;
+	margin-right: 15px;
+	border-right: 1px solid #DBDAD8;
 }
 
 
