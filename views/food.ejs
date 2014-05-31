@@ -7,7 +7,9 @@
 	<body>
 		<%- include navbar %>
 		<%- include food_articles %>
-		<%- include foodlist %>
+		<%if (hasList) { %>
+			<%- include foodlist %>
+		<% } %>
 		<%- include footer %>
 		<script type="text/javascript" src="javascripts/zepto.js"></script>
 		<script type="text/javascript" src="javascripts/jquery.waterfall.js"></script>
@@ -26,7 +28,14 @@
 			document.getElementById('nav-btn-all').style.display = 'block';
 			document.getElementById('nav-btn-mylist').style.display = 'block';
 			document.getElementById('nav-search-bar').style.display = 'block';
-			$('#nav-btn-all').removeClass('btn-default').addClass('btn-primary');
+			
+			<%if (!hasList) { %>
+				$('#nav-btn-all').removeClass('btn-default').addClass('btn-primary');
+			<% } %>
+			<%if (hasList) { %>
+				$('#nav-btn-mylist').removeClass('btn-default').addClass('btn-primary');
+			<% } %>
+
 
 			$('#add-item').popover({
 				html: true,

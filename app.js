@@ -20,12 +20,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(app.router);
+app.use(app.router);
 
 app.get('/', routes.index);
 app.get('/food', routes.food);
-app.get('/food/all', routes.all);
-app.get('/food/list', routes.list);
+app.get('/mylist', routes.mylist);
 app.get('/events', routes.events);
 
 /// catch 404 and forwarding to error handler
@@ -56,7 +55,6 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
 
