@@ -56,7 +56,7 @@ exports.events = function(req, res) {
 	MongoClient.connect(mongoUri, function(err, db) {
 		if (err) { throw err; }
 	  	var collection_foodData = db.collection('foodData');
-	  	collection_foodData.find().sort({"date":-1}).toArray(function(err, events) {
+	  	collection_foodData.find().sort({"date":1}).toArray(function(err, events) {
 			res.render('events', {
 				title: '食安事件簿',
 				events: events
