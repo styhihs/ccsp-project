@@ -1,33 +1,40 @@
 /* GET home page. */
 var fs = require('fs');
 
-exports.index = function(req, res) {
-	var ptt_food = JSON.parse(fs.readFileSync("data/ptt_food.json", "utf8"));
-	var ptt_otherFood = JSON.parse(fs.readFileSync("data/ptt_otherFood.json", "utf8"));
-
+function initDB(){
 	// Retrieve
 	var MongoClient = require('mongodb').MongoClient;
+	var mongoUri = process.env.MONGOLAB_URI || 
+				   process.env.MONGOHQ_URL || 
+				   "mongodb://localhost:27017/foods";
 
 	// Connect to the db
-	MongoClient.connect("mongodb://localhost:27017/foods", function(err, db) {
+	MongoClient.connect(mongoUri, function(err, db) {
 	  if(err) { return console.dir(err); }
 
-	  // console.log("new");
-	  var collection1 = db.collection('ptt_food');
-	  var collection2 = db.collection('ptt_otherFood');
-	  collection1.insert(ptt_food[0], {w:1}, function(err, result) {});
-	  console.log(collection1.find().toArray(function(err, items) {}));
+	  var ptt_food = JSON.parse(fs.readFileSync("data/ptt_food.json", "utf8"));
+	  var ptt_otherFood = JSON.parse(fs.readFileSync("data/ptt_otherFood.json", "utf8"));
+	  var food_ad = JSON.parse(fs.readFileSync("data/food_ad.json", "utf8"));
+	  var foodData = fs.readFileSync("data/foodData.json", "utf8");
 
-	  //init
-	  // if ()
-	 //  for (var i = 0; i < ptt_food.length; i++) {
-		// collection1.insert(ptt_food[i], {w:1}, function(err, result) {});
-	 //  }
-	  // for (var i = 0; i < ptt_otherFood.length; i++) {
-		 //  collection2.insert(ptt_otherFood[i], {w:1}, function(err, result) {});
-	  // }
+	  var collection_ptt_food = db.collection('ptt_food');
+	  var collection_ptt_otherFood = db.collection('ptt_otherFood');
+	  var collection_food_ad = db.collection('food_ad');
+	  var collection_foodData = db.collection('foodData');
 
+	  // var stream = collection_ptt_food.find({mykey:{$ne:2}}).stream();
+	  // stream.on("data", function(item) {
+	  // 	if (item) console.log(item);
+	  // 	else console.log("no item");
+	  // });
+	  // stream.on("end", function() {
+	  // 	console.log('done insert');
+	  // });
 	});
+}
+
+exports.index = function(req, res) {
+	initDB();
 	res.render('index', { title: '首頁' });
 };
 
