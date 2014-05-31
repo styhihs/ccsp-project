@@ -35,6 +35,7 @@ function initDB(){
 	  collection_foodData.count(function (err, count) {
 	    if (!err && count === 0) collection_foodData.insert(foodData, {w:1}, function(err, result) {});
 	  });
+	  
 	});
 }
 
