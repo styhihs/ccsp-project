@@ -67,17 +67,19 @@ p {
 	text-align: right;
 }
 
+/*
 .cbp_tmtimeline > li .cbp_tmtime span:first-child {
 	font-size: 0.9em;
 	color: #bdd0db;
 }
+*/
 
-.cbp_tmtimeline > li .cbp_tmtime span:last-child {
-	font-size: 2.9em;
+.cbp_tmtimeline > li .cbp_tmtime span {
+	font-size: 1.3em;
 	color: #3594cb;
 }
 
-.cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span {
 	color: #6cbfee;
 }
 
