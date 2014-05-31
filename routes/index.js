@@ -2,31 +2,44 @@
 var fs = require('fs');
 var wikiEventsFilePath = __dirname + '/../data/foodData.json'
 
-exports.index = function(req, res) {
-	var ptt_food = JSON.parse(fs.readFileSync("data/ptt_food.json", "utf8"));
-	var ptt_otherFood = JSON.parse(fs.readFileSync("data/ptt_otherFood.json", "utf8"));
-
+function initDB(){
 	// Retrieve
 	var MongoClient = require('mongodb').MongoClient;
+	var mongoUri = process.env.MONGOLAB_URI || 
+				   process.env.MONGOHQ_URL || 
+				   "mongodb://localhost:27017/foods";
 
 	// Connect to the db
-	MongoClient.connect("mongodb://localhost:27017/foods", function(err, db) {
+	MongoClient.connect(mongoUri, function(err, db) {
 	  if(err) { return console.dir(err); }
 
-	  // console.log("new");
-	  var collection1 = db.collection('ptt_food');
-	  var collection2 = db.collection('ptt_otherFood');
+	  var ptt_food = JSON.parse(fs.readFileSync("data/ptt_food.json", "utf8"));
+	  var ptt_otherFood = JSON.parse(fs.readFileSync("data/ptt_otherFood.json", "utf8"));
+	  var food_ad = JSON.parse(fs.readFileSync("data/food_ad.json", "utf8"));
+	  var foodData = JSON.parse(fs.readFileSync("data/foodData.json", "utf8"));
 
-	  //init
-	  // if ()
-	 //  for (var i = 0; i < ptt_food.length; i++) {
-		// collection1.insert(ptt_food[i], {w:1}, function(err, result) {});
-	 //  }
-	  // for (var i = 0; i < ptt_otherFood.length; i++) {
-		 //  collection2.insert(ptt_otherFood[i], {w:1}, function(err, result) {});
-	  // }
+	  var collection_ptt_food = db.collection('ptt_food');
+	  var collection_ptt_otherFood = db.collection('ptt_otherFood');
+	  var collection_food_ad = db.collection('food_ad');
+	  var collection_foodData = db.collection('foodData');
 
+	  collection_ptt_food.count(function (err, count) {
+	    if (!err && count === 0) collection_ptt_food.insert(ptt_food, {w:1}, function(err, result) {});
+	  });
+	  collection_ptt_otherFood.count(function (err, count) {
+	    if (!err && count === 0) collection_ptt_otherFood.insert(ptt_otherFood, {w:1}, function(err, result) {});
+	  });
+	  collection_food_ad.count(function (err, count) {
+	    if (!err && count === 0) collection_food_ad.insert(food_ad, {w:1}, function(err, result) {});
+	  });
+	  collection_foodData.count(function (err, count) {
+	    if (!err && count === 0) collection_foodData.insert(foodData, {w:1}, function(err, result) {});
+	  });
 	});
+}
+
+exports.index = function(req, res) {
+	initDB();
 	res.render('index', { title: '首頁' });
 };
 
