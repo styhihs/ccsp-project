@@ -54,17 +54,31 @@ exports.index = function(req, res) {
 
 //GET event timeline page. 
 exports.events = function(req, res) {
+	MongoClient.connect(mongoUri, function (err, db) {
+		if (err) { throw err; }
+
+		var data = db.collection('foodData').find().toArray();
+
+		res.render('events', {
+			title: '食安事件簿',
+			events: data
+		});
+	});
+
+	/*
 	fs.readFile(wikiEventsFilePath, 'utf8', function (err, data) {
 		if (err) { throw err; }
 
 		data = data.trim();
 		data = JSON.parse(data);
+		var data = db.collection('foodData').find().toArray();
 		
 		res.render('events', {
 			title: '食安事件簿',
 			events: data
 		});
 	});
+	*/
 };
 
 /* GET food page. */
