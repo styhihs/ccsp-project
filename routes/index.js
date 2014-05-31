@@ -72,12 +72,11 @@ exports.food = function(req, res) {
 	MongoClient.connect(mongoUri, function(err, db) {
 	  if(err) { return console.dir(err);}
 
-	  var data;
-	  var collection_food_ad = db.collection('foodData');
-	  collection_food_ad.find().toArray(function(err, items) {
-	  	data = items;
+	  var collection_food_ad = db.collection('food_ad');
+	  collection_food_ad.find().sort({"date":-1}).limit(40).toArray(function(err, items) {
+	  	  console.log(items.length);
+		  res.render('food', { title: '違規食品', items: items });
 	  });
-	  res.render('food', { title: '違規食品', items: data });
 	});
 };
 

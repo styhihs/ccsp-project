@@ -41,27 +41,21 @@
 
 <!-- waterfall excerpts -->
 <div class="container waterfall" data-col-min-width="240" data-default-container-width="600" data-autoresize="true">
+	<% var len = items.length; %>
+	<% for(var i = 0; i < len; i++) { %>
 	<div data-toggle="modal" data-target="#article1">
-		<div class="article-title">[食記] 台北文山 政大Doris Pie</div>
+		<div class="article-title"><%= items[i]['food'] %></div>
 		<div class="article-content">
-			地點在新光路上，甘泉魚麵斜對面 <br />
-			身為一個外宿在附近的居民，在他裝潢時就滿心期待 <br />
-			甚至開幕後路過時翻個菜單也覺得好像不錯 <br />
-			殊不知..... <br />
+			時間：<%= items[i]['date'] %><br/>
+			地點：<%= items[i]['location'] %><br/>
+			理由：<%= items[i]['reason'] %><br/>
+			編號：<%= items[i]['idNum'] %><br/>
+			法條：<%= items[i]['law'] %><br/>
+			懲處：<%= items[i]['punish'] %><br/>
 		</div>
 	</div>
-	<div data-toggle="modal" data-target="#article2">
-		<div class="article-title">[食記] 苗栗市｜用料實在的便宜豆花「感恩豆花」</div>
-		<div class="article-content">
-			餐廳名稱：感恩豆花 <br />
-			消費時間：2014年05月 <br />
-			地址：苗栗市中山路683號 <br />
-			電話：037-364592、0923-259591 <br />
-			營業時間：07:00-21:00（不定休） <br />
-			每人平均價位：30 <br />
-			推薦菜色： 紅豆粉圓豆花 綠豆薏仁豆花 綜合豆花 <br />
-		</div>
-	</div>
+	<% } %>
+
 </div>
 
 
