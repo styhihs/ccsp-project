@@ -16,21 +16,25 @@ function initDB(){
 	  var ptt_food = JSON.parse(fs.readFileSync("data/ptt_food.json", "utf8"));
 	  var ptt_otherFood = JSON.parse(fs.readFileSync("data/ptt_otherFood.json", "utf8"));
 	  var food_ad = JSON.parse(fs.readFileSync("data/food_ad.json", "utf8"));
-	  var foodData = fs.readFileSync("data/foodData.json", "utf8");
+	  var foodData = JSON.parse(fs.readFileSync("data/foodData.json", "utf8"));
 
 	  var collection_ptt_food = db.collection('ptt_food');
 	  var collection_ptt_otherFood = db.collection('ptt_otherFood');
 	  var collection_food_ad = db.collection('food_ad');
 	  var collection_foodData = db.collection('foodData');
 
-	  // var stream = collection_ptt_food.find({mykey:{$ne:2}}).stream();
-	  // stream.on("data", function(item) {
-	  // 	if (item) console.log(item);
-	  // 	else console.log("no item");
-	  // });
-	  // stream.on("end", function() {
-	  // 	console.log('done insert');
-	  // });
+	  collection_ptt_food.count(function (err, count) {
+	    if (!err && count === 0) collection_ptt_food.insert(ptt_food, {w:1}, function(err, result) {});
+	  });
+	  collection_ptt_otherFood.count(function (err, count) {
+	    if (!err && count === 0) collection_ptt_otherFood.insert(ptt_otherFood, {w:1}, function(err, result) {});
+	  });
+	  collection_food_ad.count(function (err, count) {
+	    if (!err && count === 0) collection_food_ad.insert(food_ad, {w:1}, function(err, result) {});
+	  });
+	  collection_foodData.count(function (err, count) {
+	    if (!err && count === 0) collection_foodData.insert(foodData, {w:1}, function(err, result) {});
+	  });
 	});
 }
 
