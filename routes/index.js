@@ -12,7 +12,7 @@ function initDB(){
 	// Connect to the db
 	MongoClient.connect(mongoUri, function(err, db) {
 	  if(err) { return console.dir(err); }
-
+	  /*
 	  var ptt_food = JSON.parse(fs.readFileSync(__dirname + "/../data/ptt_food.json", "utf8"));
 	  var ptt_otherFood = JSON.parse(fs.readFileSync(__dirname + "/../data/ptt_otherFood.json", "utf8"));
 	  var food_ad = JSON.parse(fs.readFileSync(__dirname + "/../data/food_ad.json", "utf8"));
@@ -35,6 +35,7 @@ function initDB(){
 	  collection_foodData.count(function (err, count) {
 	    if (!err && count === 0) collection_foodData.insert(foodData, {w:1}, function(err, result) {});
 	  });
+	*/
 	  
 	});
 }
