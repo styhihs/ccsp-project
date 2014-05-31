@@ -57,7 +57,8 @@ exports.events = function(req, res) {
 	MongoClient.connect(mongoUri, function (err, db) {
 		if (err) { throw err; }
 
-		var data = db.collection('foodData').find().toArray();
+		var eventCollection = db.collection('foodData');
+		var data = db.eventCollection.find({});
 
 		res.render('events', {
 			title: '食安事件簿',
