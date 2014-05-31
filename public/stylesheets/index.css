@@ -39,7 +39,7 @@ ul {
 	article.whatWeCare{
 		background-color: #180703;
 	}
-	div.whatWeCareT1, div.allForYouT1{
+	div.whatWeCareT1{
 		font-size: 50px;
 		color:#ffdff0;
 		text-align: center;
@@ -64,14 +64,124 @@ ul {
 	}
 
 	article.allForYou{
-		padding: 7%;
-		background: url("https://farm8.staticflickr.com/7203/6911019991_8e5d327574_b.jpg");
+		padding: 5%;
+		
+		background: url("https://farm8.staticflickr.com/7184/6827885818_80d4e84740_b.jpg") no-repeat center center fixed;   
 		 -webkit-background-size: cover;  
 		 -moz-background-size: cover;  
 		 -o-background-size: cover;  
 		 background-size: cover; 
 	}
+	div.ctwLayer{
+	background-color: rgba(255, 255, 255, 0.5);
+	top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	}
+	div.allForYouT1{
+		font-size: 55px;
+		color:#004000;
+		text-align: center;
+		font-weight: bold;
+	}
+	div.allForYouContentW{
+		font-size: 40px;
+		font-weight: solid;
+		color:#8b4513;
+		padding: 10px;
+		text-align: center;
+		font-weight: bold;
+	}
+	div.allForYouContentW p{
+		font-size: 25px;
+		color:#a500cc;
+		font-weight: 900;
+		
+	}
+	article.ourFuture{
+		background-color: #ffff58; 
+		padding-bottom: 3%;
+	}
+
+	div.ourFutureT1{
+		font-size: 60px;
+		color:#ff5f5f;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	div.ourFutureContentW{
+		font-size: 35px;
+		color:#009900;
+		margin-top: 15px;
+		text-align: center;
+		font-weight: bold;
+	}
+	div.ourFutureContentW p{
+		font-size: 20px;
+		color:#055fff;
+		padding-left: 2%;
+		font-weight: 900;
+	}
+	article.whoAreWe{
+		padding: 8%;
+		margin-top: -2%;
+		margin-bottom: 10%;
+		background: url("https://farm9.staticflickr.com/8263/8663643933_8d8dc58272_b.jpg") no-repeat center center fixed;   
+		 -webkit-background-size: cover;  
+		 -moz-background-size: cover;  
+		 -o-background-size: cover;  
+		 background-size: cover; 
+	}
+	span.container{
+		height: 100%;
+		width: 20%;
+		display: block;
+		position: relative;
+		margin-right: 0px;
+		margin-left: 8%;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		float: left;
+	}
+	img.partner{
+		width: auto;
+    	height: 200px;
+    	margin: 0px;
+    	border-radius:100px;
+    	display: block;
+    	
+    }
+	div.introUs{
+		height: 15%;
+		width: 200px;
+		padding-top: 5%;
+    	display: block;
+	}
+	span.partnerX{
+		height: 100%;
+    	float: left;
+    	display: block;
+    	margin-left:60px; 
+	}
+	div.indexUs{
+		color: #8fdf5f;
+	}
+
+	article.ctwFooter{
+		background: #000000;
+		color: #ffffff;
+
+	}
+
 }
+
+
+
+
+
+
 
 @media only screen and (max-width: 660px) {
 	article.ctwTitle{
@@ -104,8 +214,47 @@ ul {
 	}
 	.whatWeCareContentW{
 		font-size: 25px;
-		color:#360895;
+		color:#3608f5;
 		text-align: center;
+	}
+
+	div.allForYouContentW{
+		font-size: 40px;
+		font-weight: solid;
+		color:#000000;
+		padding: 10px;
+		text-align: center;
+		font-weight: bold;
+	}
+	div.allForYouContentW p{
+		font-size: 25px;
+		color:#252588;
+		font-weight: bold;
+		
+	}
+	article.ourFuture{
+		background-color: #ffff58; 
+	}
+
+	div.ourFutureT1{
+		font-size: 60px;
+		color:#ff5f5f;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	div.ourFutureContentW{
+		font-size: 35px;
+		color:#55ff5f;
+		margin-top: 15px;
+		text-align: center;
+		font-weight: bold;
+	}
+	div.ourFutureContentW p{
+		font-size: 20px;
+		color:#055fff;
+		padding-left: 2%;
+		font-weight: 900;
 	}
 }
 
