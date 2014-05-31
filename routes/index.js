@@ -1,6 +1,5 @@
 /* GET home page. */
 var fs = require('fs');
-var wikiEventsFilePath = __dirname + '/../data/foodData.json'
 // Retrieve
 var MongoClient = require('mongodb').MongoClient;
 var mongoUri = process.env.MONGOLAB_URI || 
@@ -54,16 +53,15 @@ exports.index = function(req, res) {
 
 //GET event timeline page. 
 exports.events = function(req, res) {
-	fs.readFile(wikiEventsFilePath, 'utf8', function (err, data) {
+	MongoClient.connect(mongoUri, function(err, db) {
 		if (err) { throw err; }
-
-		data = data.trim();
-		data = JSON.parse(data);
-		
-		res.render('events', {
-			title: '食安事件簿',
-			events: data
-		});
+	  	var collection_foodData = db.collection('foodData');
+	  	collection_foodData.find().sort({"date":-1}).toArray(function(err, events) {
+			res.render('events', {
+				title: '食安事件簿',
+				events: events
+			});
+	  	});
 	});
 };
 
