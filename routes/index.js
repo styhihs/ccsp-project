@@ -13,10 +13,10 @@ function initDB(){
 	MongoClient.connect(mongoUri, function(err, db) {
 	  if(err) { return console.dir(err); }
 
-	  var ptt_food = JSON.parse(fs.readFileSync("data/ptt_food.json", "utf8"));
-	  var ptt_otherFood = JSON.parse(fs.readFileSync("data/ptt_otherFood.json", "utf8"));
-	  var food_ad = JSON.parse(fs.readFileSync("data/food_ad.json", "utf8"));
-	  var foodData = JSON.parse(fs.readFileSync("data/foodData.json", "utf8"));
+	  var ptt_food = JSON.parse(fs.readFileSync("./../data/ptt_food.json", "utf8"));
+	  var ptt_otherFood = JSON.parse(fs.readFileSync("./../data/ptt_otherFood.json", "utf8"));
+	  var food_ad = JSON.parse(fs.readFileSync("./../data/food_ad.json", "utf8"));
+	  var foodData = JSON.parse(fs.readFileSync("./../data/foodData.json", "utf8"));
 
 	  var collection_ptt_food = db.collection('ptt_food');
 	  var collection_ptt_otherFood = db.collection('ptt_otherFood');
