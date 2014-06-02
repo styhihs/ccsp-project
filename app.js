@@ -65,7 +65,7 @@ app.get('/login' ,function(req,res){
       req.flash('info', "請先登入FaceBook。");
       return res.redirect('/food');
     }
-    var vote = new User({fbid: fbid});
+    var user = new User({fbid: fbid});
     user.save(function(err,newUser){
         if( err ){
             req.flash('info', "已是使用者！");
