@@ -19,9 +19,12 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(app.router);
+app.use(express.methodOverride());//[add]
+app.use(express.cookieParser(process.env.COOKIE_SECRET));//[add]
+app.use(express.session());//[add]
+// app.use(cookieParser());
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(app.router);
 //-------------------fb login test------------------
 // https://github.com/jaredhanson/passport#middleware
 require('./routes/passport'); // require Passport configuration
@@ -35,6 +38,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Session based flash messages
 app.use(flash());
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
