@@ -70,10 +70,18 @@ app.get('/mylist' ,function(req,res){
     	/*need to query db to find 
     	whether fbid has already exit*/
     	var user = new User({fbid: fbid});
-    	//if exist ,call  routes.mylist
-    	//if not ,save it in db and then call routes.mylist
+    	user.save(function(err, newUser){
+	    	if( err ){
+	    		//if exist ,call  routes.mylist
+	    		routes.mylist();
+	    	}
+	    	else{
+	    		//if not ,save it in db and then call routes.mylist
+	    		routes.mylist();
+	    	}
+		}
     	//ps: routes.mylist should 對 User 的清單做載入
-    	routes.mylist;
+    	
     }
 });
 
