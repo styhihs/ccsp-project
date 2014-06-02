@@ -4,7 +4,7 @@ var fs = require('fs');
 var MongoClient = require('mongodb').MongoClient;
 var mongoUri = process.env.MONGOLAB_URI || 
 			   process.env.MONGOHQ_URL || 
-			   "mongodb://localhost:27017/foods";
+			   "mongodb://localhost:27017";
 
 
 
@@ -85,6 +85,8 @@ exports.mylist = function(req, res){
 	  if(err) { return console.dir(err);}
 	  res.render('food', { title: '糾察隊' , items:{}, hasList: true});
 	});
+
+
 };
 
 

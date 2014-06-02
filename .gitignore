@@ -6,3 +6,4 @@ public/javascripts/.DS_Store
 public/stylesheets/.DS_Store
 routes/.DS_Store
 views/.DS_Store
+.env
