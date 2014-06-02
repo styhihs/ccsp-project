@@ -40,7 +40,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/mylist', function(req, res){
+app.get('/mylist', function(req, res,next){
     passport.authenticate('facebook')(req, res, next);
 });
 
