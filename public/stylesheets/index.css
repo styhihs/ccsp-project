@@ -1,6 +1,6 @@
 
 body{
-	font-family: "蘋果儷中黑", "Apple LiGothic", "Apple LiGothic Medium", "Microsoft JhengHei", "微軟正黑體", sans-serif;
+	font-family: 'fontawesome',"蘋果儷中黑", "Apple LiGothic", "Apple LiGothic Medium", "Microsoft JhengHei", "微軟正黑體", sans-serif;
 	background-color: #eeeeff;
 	padding-top: 70px;
 }
@@ -13,6 +13,18 @@ a {
 ul {
 	list-style: none!important;
 }
+
+@font-face {
+	font-family: 'fontawesome';
+	src:url('../fonts/fontawesome.eot');
+	src:url('../fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/fontawesome.svg#fontawesome') format('svg'),
+		url('../fonts/fontawesome.woff') format('woff'),
+		url('../fonts/fontawesome.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 @media  (min-width: 660px) {
 	article.ctwTitle{
 		margin-top:-5%;
