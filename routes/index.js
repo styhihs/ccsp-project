@@ -21,19 +21,19 @@ function initDB(){
 
 	  collection_ptt_food.count(function (err, count) {
 	    if (!err && count === 0) {
-			var ptt_food = JSON.parse(fs.readFileSync(__dirname + "/../ptt_food.json", "utf8"));
+			var ptt_food = JSON.parse(fs.readFileSync(__dirname + "/../data/ptt_food.json", "utf8"));
 	    	collection_ptt_food.insert(ptt_food, {w:1}, function(err, result) {});
 	    }
 	  });
 	  collection_ptt_otherFood.count(function (err, count) {
 	    if (!err && count === 0) {
-			var ptt_otherFood = JSON.parse(fs.readFileSync(__dirname + "/../ptt_otherFood.json", "utf8"));
+			var ptt_otherFood = JSON.parse(fs.readFileSync(__dirname + "/../data/ptt_otherFood.json", "utf8"));
 	    	collection_ptt_otherFood.insert(ptt_otherFood, {w:1}, function(err, result) {});
 	    }
 	  });
 	  collection_food_ad.count(function (err, count) {
 	    if (!err && count === 0) {
-	  		var food_ad = JSON.parse(fs.readFileSync(__dirname + "/../food_ad.json", "utf8"));
+	  		var food_ad = JSON.parse(fs.readFileSync(__dirname + "/../data/food_ad.json", "utf8"));
 	    	collection_food_ad.insert(food_ad, {w:1}, function(err, result) {});
 	    }
 	  });
