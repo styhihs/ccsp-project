@@ -48,7 +48,9 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/login', function(req, res,next){
+    res.redirect('/mylist');
     passport.authenticate('facebook')(req, res, next);
+
 });
 
 app.get('/fbcb', passport.authenticate('facebook', {
@@ -69,17 +71,18 @@ app.get('/mylist' ,function(req,res){
     else{//login succeed!!
     	/*need to query db to find 
     	whether fbid has already exit*/
-    	var user = new User({fbid: fbid});
-    	user.save(function(err, newUser){
-	    	if( err ){
-	    		//if exist ,call  routes.mylist
-	    		routes.mylist();
-	    	}
-	    	else{
-	    		//if not ,save it in db and then call routes.mylist
-	    		routes.mylist();
-	    	}
-		}
+  //   	var user = new User({fbid: fbid});
+  //   	user.save(function(err, newUser){
+	 //    	if( err ){
+	 //    		//if exist ,call  routes.mylist
+	 //    		routes.mylist();
+	 //    	}
+	 //    	else{
+	 //    		//if not ,save it in db and then call routes.mylist
+	 //    		routes.mylist();
+	 //    	}
+		// });
+        return res.redirect('/food');
     	//ps: routes.mylist should 對 User 的清單做載入
     	
     }
