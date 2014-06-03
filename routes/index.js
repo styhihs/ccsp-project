@@ -82,7 +82,8 @@ exports.mylist = function(req, res){
 	var user = "michael";
 	// Connect to the db
 	MongoClient.connect(mongoUri, function(err, db) {
-	  if(err) { return console.dir(err);}
+	  if(err) {return console.dir(err);}
+	  
 	  res.render('food', { title: '糾察隊' , items:{}, hasList: true});
 	});
 

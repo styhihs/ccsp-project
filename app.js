@@ -28,6 +28,7 @@ app.use(express.session());//[add]
 //-------------------fb login test------------------
 // https://github.com/jaredhanson/passport#middleware
 require('./routes/passport'); // require Passport configuration
+require('./routes/db');
 require('./models/user');
 var flash = require('connect-flash');
 var mongoose = require('mongoose');
@@ -48,7 +49,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/login', function(req, res,next){
-    res.redirect('/mylist');
+    // res.redirect('/mylist');
     passport.authenticate('facebook')(req, res, next);
 
 });
@@ -71,18 +72,19 @@ app.get('/mylist' ,function(req,res){
     else{//login succeed!!
     	/*need to query db to find 
     	whether fbid has already exit*/
-  //   	var user = new User({fbid: fbid});
-  //   	user.save(function(err, newUser){
-	 //    	if( err ){
-	 //    		//if exist ,call  routes.mylist
-	 //    		routes.mylist();
-	 //    	}
-	 //    	else{
-	 //    		//if not ,save it in db and then call routes.mylist
-	 //    		routes.mylist();
-	 //    	}
-		// });
-        return res.redirect('/food');
+    	var user = new User({fbid: fbid});
+        console.log(user);
+    	user.save(function(err, newUser){
+	    	if( err ){
+	    		//if exist ,call  routes.mylist
+
+	    		routes.mylist;
+	    	}
+	    	else{
+	    		//if not ,save it in db and then call routes.mylist
+                routes.mylist;
+	    	}
+		});
     	//ps: routes.mylist should 對 User 的清單做載入
     	
     }
