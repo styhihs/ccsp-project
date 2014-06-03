@@ -148,7 +148,6 @@ ul {
 		 -moz-background-size: cover;  
 		 -o-background-size: cover;  
 		 background-size: cover; 
-		 margin-color:blue;
 	}
 	div.whoAreWeT1{
 		font-size: 60px;
@@ -280,7 +279,7 @@ ul {
 
 	#ctwTitleT2{
 		font-size: 250%;
-		color:blue;
+		color:#ffdff0;
 		/*color:#ffdff0;*/
 		text-align: center;
 		margin: 30px;
