@@ -77,12 +77,11 @@ app.get('/mylist' ,function(req,res){
     	user.save(function(err, newUser){
 	    	if( err ){
 	    		//if exist ,call  routes.mylist
-
-	    		routes.mylist;
+	    		routes.mylist(req,res);
 	    	}
 	    	else{
 	    		//if not ,save it in db and then call routes.mylist
-                routes.mylist;
+                routes.mylist(req,res);
 	    	}
 		});
     	//ps: routes.mylist should 對 User 的清單做載入
