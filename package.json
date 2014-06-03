@@ -14,7 +14,11 @@
     "debug": "~0.7.4",
     "ejs": "~0.8.5",
     "logfmt": "^1.1.2",
-    "mongodb": "^1.4.5"
+    "mongodb": "^1.4.5",
+    "passport": "^0.2.0",
+    "passport-facebook": "^1.0.3",
+    "connect-flash": "^0.1.1",
+    "mongoose": "^3.8.12"
   },
   "main": "app.js",
   "repository": {
