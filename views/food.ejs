@@ -51,7 +51,10 @@
         			}
     			});
 			});
+			// console.log($('#newItem'), "ewrwrrewre");
+			$('.modal-body').find('input [type=email]').on('click', function() {
 
+			});
 			
 			$('#myModal').modal({
 			  keyboard: false
@@ -63,11 +66,12 @@
 					url: '/search?keyword=' + result,
 					type: 'GET',
 					success: function(data){
+						$('#search-articles .modal-body').html("");
 						if (result.length === 0) {
 							$('#search-articles .modal-title').html("").append(
 								'<center>請輸入欲搜尋的食品名稱</center>'
 							);
-							$('#search-articles .modal-body').html("").append(
+							$('#search-articles .modal-body').append(
 								'<center>查無資料</center>'
 							);
 						}
@@ -76,7 +80,7 @@
 								'<center>' + result + '的查詢結果</center>'
 							);
 							if(data.length === 0) {
-								$('#search-articles .modal-body').html("").append(
+								$('#search-articles .modal-body').append(
 									'<center>恭喜！目前並無任何有關' + result + '的相關違規食品</center>'
 								);
 							}
@@ -114,6 +118,9 @@
 				});
 			});
 
+			function noenter() {
+				return !(window.event && window.event.keyCode == 13);
+			}
 
 
 		</script>

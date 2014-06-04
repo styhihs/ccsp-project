@@ -134,7 +134,8 @@ exports.mylist = function(req, res){
 	  	  else {
 		  	console.log('屁眼'+item);
 	  	  }
-          res.render('food', { title: '糾察屁眼' , items:{}, hasList: true});
+  		  res.render('index', { title: '首頁' });//no user!!
+
   	      // res.send(items);
 	  });
 	});
