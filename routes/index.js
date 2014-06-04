@@ -81,7 +81,7 @@ exports.food = function(req, res) {
 
 	  var collection_food_ad = db.collection('food_ad');
 	  collection_food_ad.find().sort({"date":-1}).limit(40).toArray(function(err, items) {
-  		  console.log(req.query.search);
+  		  // console.log("fucker"+req.query.search);
 		  res.render('food', { title: '違規食品', items: items, hasList: false , search:"testing"});
 	  });
 	});
@@ -98,6 +98,8 @@ exports.search = function(req, res) {
 
 	  var collection_food_ad = db.collection('food_ad');
 	  collection_food_ad.find({'food':re}).sort({"date":-1}).limit(20).toArray(function(err, items) {
+  		  // console.log("dicker"+req.query.search);
+
   	      res.send(items);
 	  });
 	});
@@ -107,35 +109,57 @@ exports.search = function(req, res) {
 exports.mylist = function(req, res){
 
     var fbid = req.user && req.user.id;
+	var data = {
+		"fbid": fbid,
+		"foodlist":[]
+	};
+	var list = {
+
+	};
     req.logout(); // Delete req.user
-    // Connect to the db
-    MongoClient.connect(mongoUri, function(err, db) {
-      if(err) {
-        console.log("err: "+err);
-        return console.dir(err);
-      }
-      var collection_users = db.collection('users');
-      collection_users.find({"fbid":fbid}).toArray(function(err, items) {
-      	if(!(items[0])){
-      		res.render('index', { title: '首頁' });//no user!!
-      	}
-      	else{
-	      	var itemNum = items[0].list.length;
-	      	var userList = [];
-	      	for(var i = 0; i<itemNum;i++){
-	      		var obj = {
-	      			food    :items[0].list[i].food,
-	      			location:items[0].list[i].location,
-	      			brand   :items[0].list[i].brand
-	      		};
-	      		userList.push(obj);
-	      	}
-	      	console.log(userList);
-	        res.render('food', { title: '糾察隊' , items:{}, hasList: true});
-        }
-        });
-    });
+    // console.log("mylist: " + fbid);
     
+    MongoClient.connect(mongoUri, function(err, db) {
+	  if(err) { return console.dir(err);}
 
+	  var collection_users = db.collection('users');
+	  collection_users.findOne({'fbid':fbid}, function(err, item) {
+	  	  if (item === null) {
+	  	  	console.log('小屌');
+	    	// collection_users.insert(ptt_food, {w:1}, function(err, result) {});
 
+	  	  }
+	  	  else {
+		  	console.log('屁眼'+item);
+	  	  }
+          res.render('food', { title: '糾察屁眼' , items:{}, hasList: true});
+  	      // res.send(items);
+	  });
+	});
+    // MongoClient.connect(mongoUri, function(err, db) {
+    //   if(err) {
+    //     console.log("err: "+err);
+    //     return console.dir(err);
+    //   }
+    //   var collection_users = db.collection('users');
+    //   collection_users.find({"fbid":fbid}).toArray(function(err, items) {
+    //   	if(!(items[0])){
+    //   		res.render('index', { title: '首頁' });//no user!!
+    //   	}
+    //   	else{
+	   //    	var itemNum = items[0].list.length;
+	   //    	var userList = [];
+	   //    	for(var i = 0; i<itemNum;i++){
+	   //    		var obj = {
+	   //    			food    :items[0].list[i].food,
+	   //    			location:items[0].list[i].location,
+	   //    			brand   :items[0].list[i].brand
+	   //    		};
+	   //    		userList.push(obj);
+	   //    	}
+	   //    	console.log(userList);
+	   //      res.render('food', { title: '糾察隊' , items:{}, hasList: true});
+    //     }
+    //     });
+    // });
 };

@@ -10,6 +10,7 @@ var routes = require('./routes');
 
 var app = express();
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -50,6 +51,7 @@ if ('development' == app.get('env')) {
 app.get('/login', function(req, res,next){
     // res.redirect('/mylist');
     passport.authenticate('facebook')(req, res, next);
+
 });
 
 app.get('/fbcb', passport.authenticate('facebook', {
@@ -59,6 +61,7 @@ app.get('/fbcb', passport.authenticate('facebook', {
 
 app.get('/mylist' ,function(req,res){
     var fbid = req.user && req.user.id; // Get user from req.user
+    console.log("app.get:"+fbid);
     // Redirect the malicious (not logged in) requests.
     //
     if(fbid === undefined ){
@@ -67,25 +70,9 @@ app.get('/mylist' ,function(req,res){
         return res.redirect('/');
     }
     else{//login succeed!!
-    	/*need to query db to find 
-    	whether fbid has already exit*/
-    	var user = new User({fbid: fbid});
-        //console.log(user);
-    	user.save(function(err, newUser){
-	    	if( err ){
-	    		//if exist ,call  routes.mylist
-	    		routes.mylist(req,res);
-	    	}
-	    	else{
-	    		//if not ,save it in db and then call routes.mylist
-                routes.mylist(req,res);
-	    	}
-		});
-    	//ps: routes.mylist should 對 User 的清單做載入
-    	
+        routes.mylist(req,res);
     }
 });
-//------------------------------------
 
 app.get('/', routes.index);
 app.get('/food', routes.food);
@@ -100,7 +87,6 @@ app.use(function(req, res, next) {
 });
 
 /// error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {

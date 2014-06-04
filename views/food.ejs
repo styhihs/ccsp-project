@@ -51,10 +51,7 @@
         			}
     			});
 			});
-			// console.log($('#newItem'), "ewrwrrewre");
-			$('.modal-body').find('input [type=email]').on('click', function() {
 
-			});
 			
 			$('#myModal').modal({
 			  keyboard: false
@@ -108,6 +105,18 @@
 					}
 				});
 			});
+
+			$('#search-box').on('focus', function() {
+				$(this).on('keyup', function(e) {
+					if (e.which === 13) {
+						$('#search-bar').click();
+					}
+				});
+			});
+
+			function noenter() {
+		  		return !(window.event && window.event.keyCode == 13);
+		  	}
 
 		</script>
 	</body>
