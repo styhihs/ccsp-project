@@ -20,7 +20,7 @@
           <button type="button" class="btn btn-default navbar-btn navbar-right" id="nav-btn-all" onclick="(function(){location.href='/food'})()">總覽</button>
           <form class="navbar-form navbar-right" id="nav-search-bar" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" id = "search-box" class="form-control" placeholder="Search" onkeypress="return noenter()">
             </div>
 
             <input type="button" id="search-bar" class="btn btn-default" data-toggle="modal" data-target="#search-articles" value="搜尋">
