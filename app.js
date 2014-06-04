@@ -10,7 +10,6 @@ var routes = require('./routes');
 
 var app = express();
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -51,7 +50,6 @@ if ('development' == app.get('env')) {
 app.get('/login', function(req, res,next){
     // res.redirect('/mylist');
     passport.authenticate('facebook')(req, res, next);
-
 });
 
 app.get('/fbcb', passport.authenticate('facebook', {
@@ -88,14 +86,11 @@ app.get('/mylist' ,function(req,res){
     	
     }
 });
-
-
 //------------------------------------
 
 app.get('/', routes.index);
 app.get('/food', routes.food);
 app.get('/search', routes.search);
-//app.get('/mylist', routes.mylist);
 app.get('/events', routes.events);
 
 /// catch 404 and forwarding to error handler
@@ -128,4 +123,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
