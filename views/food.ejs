@@ -66,34 +66,38 @@
 					url: '/search?keyword=' + result,
 					type: 'GET',
 					success: function(data){
-						$('#search-articles .modal-title').html("").append(
-							'<center>' + result + '的查詢結果：</center>'
-						);
-
 						$('#search-articles .modal-body').html("");
 						if (result.length === 0) {
+							$('#search-articles .modal-title').html("").append(
+								'<center>請輸入欲搜尋的食品名稱</center>'
+							);
 							$('#search-articles .modal-body').append(
-								'<center>請輸入關鍵字</center>'
+								'<center>查無資料</center>'
 							);
 						}
-						else if(data.length === 0) {
-							$('#search-articles .modal-body').append(
-								'<center>恭喜！目前並無任何有關' + result + '的相關違規食品</center>'
+						else {
+							$('#search-articles .modal-title').html("").append(
+								'<center>' + result + '的查詢結果</center>'
 							);
-						}
-						else{
-							for (var i = 0; i < data.length; i++) {
+							if(data.length === 0) {
 								$('#search-articles .modal-body').append(
-									'<h3>'+ data[i]['food'] + '</h5>' +
-									'<h5> 時間:' + data[i]['date'] + '</h5>' +
-									'<h5> 地點:' + data[i]['location'] + '</h5>' +
-									'<h5> 理由:' + data[i]['reason'] + '</h5>' +
-									'<h5> 編號:' + data[i]['idNum'] + '</h5>' +
-									'<h5> 法條:' + data[i]['law'] + '</h5>' +
-									'<h5> 懲處:' + data[i]['punish'] + '</h5>' +
-									'<hr><br>'
+									'<center>恭喜！目前並無任何有關' + result + '的相關違規食品</center>'
 								);
-							};
+							}
+							else{
+								for (var i = 0; i < data.length; i++) {
+									$('#search-articles .modal-body').append(
+										'<h3>'+ data[i]['food'] + '</h5>' +
+										'<h5> 時間:' + data[i]['date'] + '</h5>' +
+										'<h5> 地點:' + data[i]['location'] + '</h5>' +
+										'<h5> 理由:' + data[i]['reason'] + '</h5>' +
+										'<h5> 編號:' + data[i]['idNum'] + '</h5>' +
+										'<h5> 法條:' + data[i]['law'] + '</h5>' +
+										'<h5> 懲處:' + data[i]['punish'] + '</h5>' +
+										'<hr><br>'
+									);
+								};
+							}
 						}
 					},
 					error: function(data){
