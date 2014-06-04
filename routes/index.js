@@ -80,9 +80,11 @@ exports.food = function(req, res) {
 	  if(err) { return console.dir(err);}
 
 	  var collection_food_ad = db.collection('food_ad');
-	  collection_food_ad.find().sort({"date":-1}).limit(40).toArray(function(err, items) {
-  		  // console.log("fucker"+req.query.search);
-		  res.render('food', { title: '違規食品', items: items, hasList: false , search:"testing"});
+
+	  var pages = req.query.pages;
+	  collection_food_ad.find().sort({"date":-1}).skip((pages)*40).limit(40).toArray(function(err, items) {
+  		  console.log(req.query.search);
+		  res.render('food', { title: '違規食品', items: items, hasList: false , search:"testing", page:pages});
 	  });
 	});
 }
