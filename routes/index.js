@@ -110,10 +110,28 @@ exports.food = function(req, res) {
 
 	  var collection_food_ad = db.collection('food_ad');
 	  collection_food_ad.find().sort({"date":-1}).limit(40).toArray(function(err, items) {
-		  res.render('food', { title: '違規食品', items: items, hasList: false });
+  		  console.log(req.query.search);
+		  res.render('food', { title: '違規食品', items: items, hasList: false , search:"testing"});
 	  });
 	});
 }
+
+exports.search = function(req, res) {
+	var keyword = req.query.keyword;
+	var re = new RegExp(keyword,"g");
+	// var str = "mystring".replace(re, "dick");
+	// console.log(str);
+
+	MongoClient.connect(mongoUri, function(err, db) {
+	  if(err) { return console.dir(err);}
+
+	  var collection_food_ad = db.collection('food_ad');
+	  collection_food_ad.find({'food':re}).sort({"date":-1}).limit(20).toArray(function(err, items) {
+  	      res.send(items);
+	  });
+	});
+};
+
 
 exports.mylist = function(req, res){
 
@@ -134,7 +152,3 @@ exports.mylist = function(req, res){
 
 
 };
-
-// exports.login = function(req, res) {
-// 	res.render('login', { title: '登入' });
-// }

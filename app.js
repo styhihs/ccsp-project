@@ -93,6 +93,7 @@ app.get('/mylist' ,function(req,res){
 
 app.get('/', routes.index);
 app.get('/food', routes.food);
+app.get('/search', routes.search);
 //app.get('/mylist', routes.mylist);
 app.get('/events', routes.events);
 
