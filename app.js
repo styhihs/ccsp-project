@@ -71,7 +71,7 @@ app.get('/mylist' ,function(req,res){
     else{//login succeed!!
     	/*need to query db to find 
     	whether fbid has already exit*/
-    	var user = new User({fbid: fbid},{list:{food:"123"}});
+    	var user = new User({fbid: fbid});
         //console.log(user);
     	user.save(function(err, newUser){
 	    	if( err ){

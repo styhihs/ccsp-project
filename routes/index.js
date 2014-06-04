@@ -18,6 +18,7 @@ function initDB(){
 	  var collection_ptt_otherFood = db.collection('ptt_otherFood');
 	  var collection_food_ad = db.collection('food_ad');
 	  var collection_foodData = db.collection('foodData');
+	  var collection_users   = db.collection('users');
 	  
 	  collection_ptt_food.count(function (err, count) {
 	    if (!err && count === 0) {
@@ -43,7 +44,14 @@ function initDB(){
 	    	collection_foodData.insert(foodData, {w:1}, function(err, result) {});
 	    }
 	  });
-	  
+
+	  collection_users.count(function (err, count) {
+        if (!err && count === 0) {
+            var user = JSON.parse(fs.readFileSync(__dirname + "/../data/users.json", "utf8"));
+            collection_users.insert(user, {w:1}, function(err, result) {});
+        }
+      });
+
 	});
 }
 
@@ -106,10 +114,26 @@ exports.mylist = function(req, res){
         console.log("err: "+err);
         return console.dir(err);
       }
-      // var collection_users = db.collection('users');
-      // var item = collection_users.find().count();
-      // console.log(item);
-            res.render('food', { title: '糾察隊' , items:{}, hasList: true});
+      var collection_users = db.collection('users');
+      collection_users.find({"fbid":fbid}).toArray(function(err, items) {
+      	if(!(items[0])){
+      		res.render('index', { title: '首頁' });//no user!!
+      	}
+      	else{
+	      	var itemNum = items[0].list.length;
+	      	var userList = [];
+	      	for(var i = 0; i<itemNum;i++){
+	      		var obj = {
+	      			food    :items[0].list[i].food,
+	      			location:items[0].list[i].location,
+	      			brand   :items[0].list[i].brand
+	      		};
+	      		userList.push(obj);
+	      	}
+	      	console.log(userList);
+	        res.render('food', { title: '糾察隊' , items:{}, hasList: true});
+        }
+        });
     });
     
 
