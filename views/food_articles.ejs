@@ -15,8 +15,8 @@
 	</div>
 	<% } %>
 </div>
-<div class="container" >
-<div style="margin:0 auto; width:75%;">
+<div class="pages-container">
+<div class="pages-bar">
 	<button type="button" class="btn btn-default" 
 		<% if(page > 0){ %>
 		onclick="(function(){
@@ -26,10 +26,16 @@
 	>上一頁</button>
 
 	<% for(var i = 0; i<10;i++){ %>
+		<% if (i === page) { %>
 		<button type="button" class="btn btn-default" onclick="(function(){
 			location.href='/food?pages=<%-(i)%>'
-			})()">第<%- (i+1) %>頁</button>
-	<%}%>
+			})()"><%- (i+1) %></button>
+		<% } else { %>
+		<button type="button" class="btn btn-primary" onclick="(function(){
+			location.href='/food?pages=<%-(i)%>'
+			})()"><%- (i+1) %></button>
+		<% } %>
+	<% } %>
 	<button type="button" class="btn btn-default" 
 		<% if(page < 9){ %>
 			onclick="(function(){
