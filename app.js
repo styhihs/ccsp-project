@@ -61,7 +61,6 @@ app.get('/fbcb', passport.authenticate('facebook', {
 
 app.get('/mylist' ,function(req,res){
     var fbid = req.user && req.user.id; // Get user from req.user
-    req.logout(); // Delete req.user
     // Redirect the malicious (not logged in) requests.
     //
     if(fbid === undefined ){
@@ -72,8 +71,8 @@ app.get('/mylist' ,function(req,res){
     else{//login succeed!!
     	/*need to query db to find 
     	whether fbid has already exit*/
-    	var user = new User({fbid: fbid});
-        console.log(user);
+    	var user = new User({fbid: fbid},{list:{food:"123"}});
+        //console.log(user);
     	user.save(function(err, newUser){
 	    	if( err ){
 	    		//if exist ,call  routes.mylist

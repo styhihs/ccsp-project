@@ -18,6 +18,25 @@ function initDB(){
 	  var collection_ptt_otherFood = db.collection('ptt_otherFood');
 	  var collection_food_ad = db.collection('food_ad');
 	  var collection_foodData = db.collection('foodData');
+	  exports.mylist = function(req, res){
+
+    var fbid = req.user && req.user.id;
+    req.logout(); // Delete req.user
+    // Connect to the db
+    MongoClient.connect(mongoUri, function(err, db) {
+      if(err) {
+        console.log("err: "+err);
+        return console.dir(err);
+      }
+      var collection_users = db.collection('users');
+      var item = collection_users.find().count();
+      console.log(item);
+            res.render('food', { title: '糾察隊' , items:{}, hasList: true});
+    });
+    
+
+
+};
 
 	  collection_ptt_food.count(function (err, count) {
 	    if (!err && count === 0) {
@@ -43,6 +62,25 @@ function initDB(){
 	    	collection_foodData.insert(foodData, {w:1}, function(err, result) {});
 	    }
 	  });
+	  exports.mylist = function(req, res){
+
+    var fbid = req.user && req.user.id;
+    req.logout(); // Delete req.user
+    // Connect to the db
+    MongoClient.connect(mongoUri, function(err, db) {
+      if(err) {
+        console.log("err: "+err);
+        return console.dir(err);
+      }
+      var collection_users = db.collection('users');
+      var item = collection_users.find().count();
+      console.log(item);
+            res.render('food', { title: '糾察隊' , items:{}, hasList: true});
+    });
+    
+
+
+};
 	});
 }
 
@@ -75,24 +113,27 @@ exports.food = function(req, res) {
 		  res.render('food', { title: '違規食品', items: items, hasList: false });
 	  });
 	});
-};
+}
 
 exports.mylist = function(req, res){
 
-	var user = "michael";
-	// Connect to the db
-	console.log("48654dfsf");
-	MongoClient.connect(mongoUri, function(err, db) {
-	  if(err) {
-console.log("err: "+err);
-	  	return console.dir(err);}
-
-	  res.render('food', { title: '糾察隊' , items:{}, hasList: true});
-	});
+    var fbid = req.user && req.user.id;
+    req.logout(); // Delete req.user
+    // Connect to the db
+    MongoClient.connect(mongoUri, function(err, db) {
+      if(err) {
+        console.log("err: "+err);
+        return console.dir(err);
+      }
+      // var collection_users = db.collection('users');
+      // var item = collection_users.find().count();
+      // console.log(item);
+            res.render('food', { title: '糾察隊' , items:{}, hasList: true});
+    });
+    
 
 
 };
-
 
 // exports.login = function(req, res) {
 // 	res.render('login', { title: '登入' });
