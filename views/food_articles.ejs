@@ -15,6 +15,9 @@
 	</div>
 	<% } %>
 </div>
+
+<% if (!page) { page = 0; } %>
+
 <div class="container pages-container">
 <div class="pages-bar">
 	<button type="button" class="btn btn-default" 
@@ -27,11 +30,11 @@
 
 	<% for(var i = 0; i<10;i++){ %>
 		<% if (i == page) { %>
-		<button type="button" class="btn btn-default" onclick="(function(){
+		<button type="button" class="btn btn-primary" onclick="(function(){
 			location.href='/food?pages=<%-(i)%>'
 			})()"><%- (i+1) %></button>
 		<% } else { %>
-		<button type="button" class="btn btn-primary" onclick="(function(){
+		<button type="button" class="btn btn-default" onclick="(function(){
 			location.href='/food?pages=<%-(i)%>'
 			})()"><%- (i+1) %></button>
 		<% } %>
