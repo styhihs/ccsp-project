@@ -15,27 +15,30 @@
 	</div>
 	<% } %>
 </div>
-<div class="container" >
-<div style="margin:0 auto; width:75%;">
-	<button type="button" class="btn btn-default" 
-		<% if(page > 0){ %>
-		onclick="(function(){
-			location.href='/food?pages=<%-(page-1)%>'
-		})()"
-		<%}%>
-	>上一頁</button>
 
-	<% for(var i = 0; i<10;i++){ %>
-		<button type="button" class="btn btn-default" onclick="(function(){
-			location.href='/food?pages=<%-(i)%>'
-			})()">第<%- (i+1) %>頁</button>
-	<%}%>
-	<button type="button" class="btn btn-default" 
-		<% if(page < 9){ %>
+<%if (!hasList) { %>
+	<div class="container" >
+	<div style="margin:0 auto; width:75%;">
+		<button type="button" class="btn btn-default" 
+			<% if(page > 0){ %>
 			onclick="(function(){
 				location.href='/food?pages=<%-(page-1)%>'
 			})()"
+			<%}%>
+		>上一頁</button>
+
+		<% for(var i = 0; i<10;i++){ %>
+			<button type="button" class="btn btn-default" onclick="(function(){
+				location.href='/food?pages=<%-(i)%>'
+				})()">第<%- (i+1) %>頁</button>
 		<%}%>
-		})()">下一頁</button>
-</div>
-</div>
+		<button type="button" class="btn btn-default" 
+			<% if(page < 9){ %>
+				onclick="(function(){
+					location.href='/food?pages=<%-(page-1)%>'
+				})()"
+			<%}%>
+			})()">下一頁</button>
+	</div>
+	</div>
+<%}%>
