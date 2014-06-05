@@ -121,13 +121,14 @@ exports.mylist = function(req, res){
 
 	  collection_user.findOne({'fbid':fbid}, function(err, user) {
 	  		var foodlist = [
-	  			{"food":"幹細胞"},
-	  			{"food":"日本"},
-	  			{"food":"老二"},
-	  			{"food":"屁眼"},
-	  			{"food":"大日本"},
+	  			{"food":"燕麥"},
+	  			{"food":"毛豆"},
+	  			{"food":"青木瓜"},
+	  			{"food":"甘泉魚麵"},
+	  			{"food":"咖哩"},
 	  		];
-	  	  if (user === null || user.list.length === 0) {
+	  	  if (user === null) { //demo 
+	  	  // if (user === null || user.list.length === 0) {
 	  	  	var data = {
 				"fbid": fbid,
 				"list":[]
@@ -148,7 +149,7 @@ exports.mylist = function(req, res){
 		  	var items = [];
 		  	var done = 0;
 
-		  	var foodlist = user.list;
+		  	// var foodlist = user.list;
 		  	for (var i = 0; i < foodlist.length; i++) {
 				var re = new RegExp(foodlist[i]['food'],"g");
 				var stream = collection_food_ad.find({'food':re}).sort({"date":-1}).limit(5).stream();
