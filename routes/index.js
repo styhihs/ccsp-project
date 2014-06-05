@@ -138,13 +138,13 @@ exports.mylist = function(req, res){
 				"location":"",
 				"brand":""
 			};
-	  	  	console.log('沒用過我們超屌清單的窮屌絲');
+	  	  	console.log('xxxx');
 	    	collection_user.insert(data, {w:1}, function(err, result) {
-		        res.render('food', { title: '怎麼辦怎麼辦', list:{}, items:{}, hasList: true});
+		        res.render('food', { title: '食品日記', list:{}, items:{}, hasList: true});
 	    	});
 	  	  }
 	  	  else {
-		  	console.log('屁眼' + JSON.stringify(user));
+		  	console.log('xx' + JSON.stringify(user));
 		  	console.log(user.list.length);
 		  	var items = [];
 		  	var done = 0;
@@ -161,7 +161,7 @@ exports.mylist = function(req, res){
 				  	// console.log(items);
 				  	done++;
 				  	if (done === foodlist.length) {
-				        res.render('food', { title: '可惡一直卡住', list:foodlist, items:items, hasList: true});
+				        res.render('food', { title: '食品日記2', list:foodlist, items:items, hasList: true});
 				  	}
 				});
 		  	}
