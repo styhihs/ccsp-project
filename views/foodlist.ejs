@@ -5,36 +5,36 @@
 	<h3>
 		<div class="itemlist-title">關注食品清單</div>
 		<div class="insert-item-button">
-			<a id="add-item" data-container="body" data-toggle="popover" data-placement="top" data-original-title="新增" href="#">新增項目</a>
+			<a id="add-item" data-container="body" data-toggle="popover" data-placement="top" data-original-title="新增">新增項目</a>
 			<div id="add-item-form" class="hide">
 				<form class="form-horizontal" role="form">
 					<div class="form-group">
     				<label for="inputEmail3" class="col-sm-3 control-label">食品</label>
     				<div class="col-sm-9">
-      					<input type="email" class="form-control" id="inputEmail3" placeholder="例如：薯條">
+      					<input type="email" class="form-control" id="FOOD" placeholder="例如：薯條" value="薯條">
     				</div>
   				</div>
   					<div class="form-group">
-    					<label for="inputPassword3" class="col-sm-3 control-label">店家</label>
+    					<label for="inputEmail3" class="col-sm-3 control-label">店家</label>
     					<div class="col-sm-9">
-      						<input type="password" class="form-control" id="inputPassword3" placeholder="例如：麥當勞">
+      						<input type="email" class="form-control" id="STORE" placeholder="例如：麥當勞">
     					</div>
   					</div>
   					<div class="form-group">
-    					<label for="inputPassword3" class="col-sm-3 control-label">地區</label>
+    					<label for="inputEmail3" class="col-sm-3 control-label">地區</label>
     					<div class="col-sm-9">
-      						<input type="password" class="form-control" id="inputPassword3" placeholder="例如：台北市大安區">
+      						<input type="email" class="form-control" id="LOCATION" placeholder="例如：台北市大安區">
     					</div>
   					</div>
   					<div class="form-group">
     					<div class="col-sm-offset-5 col-sm-7">
-    						<button type="submit" class="btn btn-danger">
+    						<div class="btn btn-danger">
       							<span class="glyphicon glyphicon-minus"></span>&nbsp;&nbsp;取消
-      						</button>
+      						</div>
       						&nbsp;&nbsp;
-      						<button type="submit" class="btn btn-primary" id="newItem">
+      						<div class="btn btn-primary" id="new-item" onclick="sendform();">
       							<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新增
-      						</button>
+      						</div>
     					</div>
   					</div>
 				</form>

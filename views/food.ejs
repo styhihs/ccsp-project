@@ -122,7 +122,34 @@
 				return !(window.event && window.event.keyCode == 13);
 			}
 
+			function sendform(){
+				var food = $('#FOOD').val();
+				var store = $('#STORE').val();
+				var location = $('#LOCATION').val();
 
+				alert(food);
+				$.ajax({
+					url:"/send?food=" + food + '&store=' + store + '&location' + location, 
+					type: "GET",
+					// dataType: "json",
+					// data: data,
+					success: function(res) {
+						// alert('success');
+					},
+					error: function(res) {
+						// alert('error');
+					},
+					complete: function(res) {
+						// var yes = JSON.stringify(res);
+						alert(res);
+						
+					}
+				});
+
+			}
+		</script>
+		<script>
+			
 		</script>
 	</body>
 </html>

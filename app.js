@@ -78,6 +78,8 @@ app.get('/', routes.index);
 app.get('/food', routes.food);
 app.get('/search', routes.search);
 app.get('/events', routes.events);
+app.get('/send', routes.send);
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

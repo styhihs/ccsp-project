@@ -18,7 +18,7 @@ function initDB(){
 	  var collection_ptt_otherFood = db.collection('ptt_otherFood');
 	  var collection_food_ad = db.collection('food_ad');
 	  var collection_foodData = db.collection('foodData');
-	  var collection_users   = db.collection('users');
+	  // var collection_users   = db.collection('users');
 	  
 	  collection_ptt_food.count(function (err, count) {
 	    if (!err && count === 0) {
@@ -45,12 +45,12 @@ function initDB(){
 	    }
 	  });
 
-	  collection_users.count(function (err, count) {
-        if (!err && count === 0) {
-            var user = JSON.parse(fs.readFileSync(__dirname + "/../data/users.json", "utf8"));
-            collection_users.insert(user, {w:1}, function(err, result) {});
-        }
-      });
+	  // collection_users.count(function (err, count) {
+   //      if (!err && count === 0) {
+   //          var user = JSON.parse(fs.readFileSync(__dirname + "/../data/users.json", "utf8"));
+   //          collection_users.insert(user, {w:1}, function(err, result) {});
+   //      }
+   //    });
 
 	});
 }
@@ -139,7 +139,7 @@ exports.mylist = function(req, res){
 			};
 	  	  	console.log('沒用過我們超屌清單的窮屌絲');
 	    	collection_user.insert(data, {w:1}, function(err, result) {
-		        res.render('food', { title: '你他媽生兒子沒屁眼', list:{}, items:{}, hasList: true});
+		        res.render('food', { title: '怎麼辦怎麼辦', list:{}, items:{}, hasList: true});
 	    	});
 	  	  }
 	  	  else {
@@ -160,13 +160,21 @@ exports.mylist = function(req, res){
 				  	// console.log(items);
 				  	done++;
 				  	if (done === foodlist.length) {
-				        res.render('food', { title: '你兒子沒屁眼', list:foodlist, items:items, hasList: true});
+				        res.render('food', { title: '可惡一直卡住', list:foodlist, items:items, hasList: true});
 				  	}
 				});
 		  	}
-
-	        // res.render('food', { title: '你他媽生兒子沒屁眼', list:item.list, items:{}, hasList: true});
 	  	  }
 	  });
 	});
 };
+
+exports.send = function(req, res){
+	var data = req.query.food;
+	console.log("?"+data);
+	res.send(data);
+}
+
+
+
+// res.redirect('/');
