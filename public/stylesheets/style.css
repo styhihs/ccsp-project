@@ -98,6 +98,16 @@ ul {
 	transition: all 0.4s ease;
 }
 
+.pages-container {
+	width: 1170px;
+	padding: 20px 0;
+}
+
+.pages-bar {
+	width: 50%;
+	margin: 0 auto;
+}
+
 /*
 .footer {
 	position: fixed;
